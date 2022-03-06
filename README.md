@@ -1,2 +1,3 @@
-# discord community manager bot
+# Discord Community Manager Bot
  
+## WORK IN PROGRESS
