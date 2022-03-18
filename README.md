@@ -26,7 +26,9 @@ How to install plugins:<br/>
 First you need <a href="https://nodejs.org/en/">Node.js v16.14.0</a> then after Node.js is installed you need a code editor, some good ones are <a href="https://code.visualstudio.com">Visual Studio Code</a> and <a href="https://www.sublimetext.com">Sublime Text</a>, after you install one of these code editors, go ahead and open the bot folder with them, now you will need to configure the `config.js`, so open the `config.js` with the code editor and start placing the bot token, if you need help with this go to <a href="https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot">Discord.js Guide</a> it can help you to get the token, with the token in hands, go ahead and remove the placeholder text and paste the token, in the prefix remove the placeholder text and write the wanted prefix, I recommend maximum of 3 chars, for the guild id you will need the <a href="https://support.discord.com/hc/pt-br/articles/206346498">guild id<a> where the bot will be used, and remove placeholder text and paste your guild id, and the last part of setting up the bot, remove placeholder text of mod roles do almost the same process as the guild id, but this time with your mod role id. Now you can start the bot by typing `node .` on the terminal
 
 <details>
-<summary>At the end the config.js should be looking like this (click to see)</summary>
- <br />
-<p><img src="https://user-images.githubusercontent.com/84397555/156944199-d781805a-a863-4b06-a735-e20b6290c607.png" alt="image" /></p>
+    <summary>At the end the config.js should be looking like this (click to see)</summary>
+    <br />
+    <p>
+    <img src="https://user-images.githubusercontent.com/84397555/156944199-d781805a-a863-4b06-a735-e20b6290c607.png" alt="image" />
+    </p>
 </details><br />
