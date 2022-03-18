@@ -1,16 +1,20 @@
+//Packages imports
 const { Client } = require("discord.js");
-const fs = require("fs");
-// const Collections = require("../index.js").Collections;
+const { readdirSync, readdir, lstatSync } = require("fs");
 
 /**
- * @param {Client} Client 
+ * @param {Client} Client
  */
 module.exports = (Client) => {
-  fs.readdirSync("./src/events/").forEach((dir) => {
-    fs.readdir(`./src/events/${dir}`, (err, files) => {
+  //Reading dirs inside events folder
+  readdirSync("./src/events/").forEach((dir) => {
+    if (!lstatSync(`./src/events/${dir}`).isDirectory()) return;
+    //Reading events
+    readdir(`./src/events/${dir}`, (err, files) => {
       var jsFiles = files.filter((f) => f.split(".").pop() === "js");
 
       jsFiles.forEach((file) => {
+        //Importing events
         require(`../events/${dir}/${file}`);
       });
     });

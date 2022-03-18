@@ -1,6 +1,8 @@
 # How the bot works?
 
 It's a simple bot, that can easily be upgraded for your needs using modules or plugins!
+For official modules and plugins check <a href="https://github.com/Luisin13/discord-community-manager-bot-extensions">
+discord community manager bot extensions<a/>
 
 # What are modules?
 
@@ -18,7 +20,8 @@ But why we need plugins, if there is modules? It's because plugins have small fu
 How to install plugins:<br/>
 ● Locate the plugins folder in src directory<br/>
 ● Download a plugin<br/>
-● Place the plugin in the bot plugins folder<br/>
+● Place the plugin in the bot plugins folder <br />
+● Insert file name with extension in `plugins.js` in the respective category<br/>
 ● Now you are good to go<br/>
 
 # How to start the bot?

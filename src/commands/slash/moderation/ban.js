@@ -10,6 +10,7 @@ const translations = require(`${process.cwd()}/locales/${
  * @param {Discord.CommandInteraction} interaction
  */
 module.exports.run = async (interaction, Client) => {
+  //Get options
   const user = interaction.options.getUser(translations.ban.user(), true);
   const reason =
     interaction.options.getString(translations.ban.reason()) ||
@@ -17,6 +18,7 @@ module.exports.run = async (interaction, Client) => {
   const deleteMessage =
     Number(interaction.options.getString(translations.ban.messages())) || 0;
 
+  //Conditions to not execute the ban
   if (interaction.user.id == user.id)
     return interaction.reply(translations.ban.banYourself());
   if (user.id == interaction.guild.ownerId)
@@ -34,6 +36,7 @@ module.exports.run = async (interaction, Client) => {
   )
     return interaction.reply(translations.ban.lowerBotRole());
 
+  //Ban the user
   interaction.guild.bans
     .create(`${user.id}`, {
       reason: `${reason}`,
@@ -51,7 +54,7 @@ module.exports.help = {
   name: "ban",
   description: translations.ban.banDescription(),
   type: "TEXT_INPUT",
-  category: "moderação",
+  category: translations.ban.category(),
   defer: false,
 };
 

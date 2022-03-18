@@ -24,20 +24,24 @@ module.exports.run = async (Client, message, args, prefix) => {
     }
   }
 
-  await sleep(200);
-  const table = new asciiTable("Plugins")
-    .setHeading("Plugin", `${translations.plugins.author()}`, "GitHub")
-    .setBorder("┃", "―", "+", "+")
-    
-  pluginsInfo.forEach((plugin) => {
-    table.addRow(plugin.name, plugin.author, plugin.githubRepo);
-  });
-  message.reply(`\`\`\`prolog\n${table.toString()}\`\`\``);
+  if (pluginsInfo.length > 0) {
+    await sleep(200);
+    const table = new asciiTable("Plugins")
+      .setHeading("Plugin", `${translations.plugins.author()}`, "GitHub")
+      .setBorder("┃", "―", "+", "+");
+
+    pluginsInfo.forEach((plugin) => {
+      table.addRow(plugin.name, plugin.author, plugin.githubRepo);
+    });
+    message.reply(`\`\`\`prolog\n${table.toString()}\`\`\``);
+  } else {
+    message.reply(translations.plugins.noPlugins())
+  }
 };
 
 module.exports.help = {
   name: "plugins",
-  description: "Olha os plugins instalados no bot",
+  description: translations.plugins.description(),
   aliases: [],
-  category: "utilidade",
+  category: translations.plugins.category(),
 };

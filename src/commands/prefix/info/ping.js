@@ -1,8 +1,10 @@
+//Imports
 const Discord = require("discord.js");
 const config = require(`${process.cwd()}/config.js`);
 const translations = require(`${process.cwd()}/locales/${
   config.LANGUAGE
 }/commands.js`);
+
 /**
  *
  * @param {Discord.Client} Client
@@ -11,6 +13,7 @@ const translations = require(`${process.cwd()}/locales/${
  * @param {String} prefix
  */
 module.exports.run = async (Client, message, args, prefix) => {
+  //Executing Command
   message.reply(`${translations.ping.calculating()}`).then((resultMessage) => {
     const y = resultMessage.createdTimestamp - message.createdTimestamp;
     const x = 2;
@@ -29,7 +32,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
 module.exports.help = {
   name: "ping",
-  description: "Mede o seu ping, e da API do Discord",
+  description: translations.ping.description(),
   aliases: ["p"],
-  category: "utilidade",
+  category: translations.ping.category(),
 };

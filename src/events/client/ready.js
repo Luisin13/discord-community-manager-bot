@@ -10,18 +10,21 @@ const translations = require(`${process.cwd()}/locales/${
 Client.on("ready", async () => {
   console.log(translations.ready.online(Client));
 
+  //Setting Slash Commands
   const arrayOfSlashCommands = [];
-  Client.SlashCollection.map((x) => {
-    arrayOfSlashCommands.push(x.cmd);
+  Client.SlashCollection.map((Slash) => {
+    arrayOfSlashCommands.push(Slash.cmd);
   });
-
   await (
     await Client.guilds.fetch(config.GUILDID)
   ).commands.set(arrayOfSlashCommands);
 
-  Client.Modules.map((x) => {
-    x.run(Client);
+  //Executing Modules
+  Client.Modules.map((Module) => {
+    Module.run(Client);
   });
+
+  //Reading and executing Plugins
   plugins.ready.forEach((plugin) => {
     if (existsSync(`./src/plugins/${plugin}`)) {
       const pluginInfo =
@@ -31,6 +34,7 @@ Client.on("ready", async () => {
     }
   });
 
+  //Setting Slash Command permissions
   (await Client.guilds.fetch(config.GUILDID)).commands.cache.forEach(
     (command) => {
       if (command.defaultPermission == false) {

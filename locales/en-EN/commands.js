@@ -16,15 +16,30 @@ module.exports = {
     description: () => {
       return `Measure your ping, and from the Discord API`;
     },
+    category: () => {
+      return "utility";
+    },
   },
   plugins: {
     author: () => {
       return `Author`;
     },
+    noPlugins: () => {
+      return `No plugins!`
+    },
+    description: () => {
+      return "Look at the plugins in the bot";
+    },
+    category: () => {
+      return "utility";
+    },
   },
   ban: {
     banDescription: () => {
       return `Bans a user`;
+    },
+    category: () => {
+      return `moderation`;
     },
     user: () => {
       return `user`;
