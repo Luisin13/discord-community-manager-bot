@@ -7,6 +7,7 @@ const config =
     ? require(`${process.cwd()}/config.js`)
     : require(`${process.cwd()}/config.dev.js`);
 const { readdirSync, statSync } = require("fs");
+const MusicController = require("./controllers/music");
 
 //Configuring Client
 const Client = new Discord.Client({
@@ -17,6 +18,7 @@ Client.SlashCollection = new Collection();
 Client.CommandCollection = new Collection();
 Client.AliasesCollection = new Collection();
 Client.Modules = new Collection();
+Client.Music = new MusicController(Client);
 
 //Executing handlers
 readdirSync("./src/handlers/").forEach((file) => {

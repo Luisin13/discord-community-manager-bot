@@ -4,4 +4,5 @@ module.exports = {
   GUILDID: "your-guild-id",
   LANGUAGE: "en-EN",
   MODROLES: ["your-guild-id-mod-role"],
+  EMBED_COLOR: "#0099ff",
 };

@@ -325,4 +325,64 @@ module.exports = {
       return `You can't delete more than 100 messages at once!`;
     },
   },
+  avatar: {
+    description: () => {
+      return `Shows the avatar of a user`;
+    },
+    category: () => {
+      return `utility`;
+    },
+    user: () => {
+      return `user`;
+    },
+    userDescription: () => {
+      return `User to get the avatar of!`;
+    },
+    openBrowser: () => {
+      return `Open in browser`;
+    },
+    error: () => {
+      return `Error while getting the avatar!`;
+    },
+  },
+  banner: {
+    description: () => {
+      return `Shows the banner of a user`;
+    },
+    category: () => {
+      return `utility`;
+    },
+    user: () => {
+      return `user`;
+    },
+    userDescription: () => {
+      return `User to get the banner of!`;
+    },
+    openBrowser: () => {
+      return `Open in browser`;
+    },
+    error: () => {
+      return `Error while getting the banner!`;
+    },
+    /**
+     * @param {String} color
+     */
+    color: (color) => {
+      return `**The user don't have a banner!** \nHere is the accent color instead! \n(hex: ${color})`;
+    }
+  },
+  connect: {
+    description: () => {
+      return `Connects to a voice channel`;
+    },
+    category: () => {
+      return `music`;
+    },
+    error: () => {
+      return `Error while connecting to the channel!`;
+    },
+    success: () => {
+      return `Connected to the channel!`;
+    },
+  }
 };

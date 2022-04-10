@@ -322,4 +322,64 @@ module.exports = {
       return `Você não pode apagar mais de 100 mensagens!`;
     },
   },
+  avatar: {
+    description: () => {
+      return `Mostra o avatar de um usuário`;
+    },
+    category: () => {
+      return `utilidades`;
+    },
+    user: () => {
+      return `usuário`;
+    },
+    userDescription: () => {
+      return `Usuário a ser mostrado o avatar!`;
+    },
+    openBrowser: () => {
+      return `Abrir no navegador`;
+    },
+    error: () => {
+      return `Erro ao mostrar o avatar!`;
+    },
+  },
+  banner: {
+    description: () => {
+      return `Mostra o banner de um usuário`;
+    },
+    category: () => {
+      return `utilidades`;
+    },
+    user: () => {
+      return `usuário`;
+    },
+    userDescription: () => {
+      return `Usuário a ser mostrado o banner!`;
+    },
+    openBrowser: () => {
+      return `Abrir no navegador`;
+    },
+    error: () => {
+      return `Erro ao mostrar o banner!`;
+    },
+    /**
+     * @param {string} color
+     */
+    color: (color) => {
+      return `**O usuário não tem um banner!** \nAqui está a cor de destaque em vez disso! \n(hex: ${color})`;
+    }
+  },
+  connect: {
+    description: () => {
+      return `Conecta a um canal de voz`;
+    },
+    category: () => {
+      return `musica`;
+    },
+    error: () => {
+      return `Erro ao conectar ao canal de voz!`;
+    },
+    success: () => {
+      return `Conectado com sucesso!`;
+    },
+  }
 };
