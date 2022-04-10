@@ -31,11 +31,13 @@ module.exports.run = async (Client, message, args, prefix) => {
 
   const modulesInfo = [];
   let clientModules = Client.Modules,
-    modules = [...Array.from(clientModules)][0].filter(module => typeof module === "object");
+    modules = [...Array.from(clientModules)][0].filter(
+      (module) => typeof module === "object"
+    );
 
   for (const module of modules) {
     const moduleInfo = module.moduleInfo;
-    delete module.run
+    delete module.run;
     modulesInfo.push(moduleInfo);
   }
 

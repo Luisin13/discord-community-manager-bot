@@ -107,6 +107,12 @@ module.exports = {
     error: () => {
       return `Error while banning the user!`;
     },
+    noPermission: () => {
+      return `You don't have permission to use this command!`;
+    },
+    noUser: () => {
+      return `No user specified!`;
+    },
   },
   kick: {
     description: () => {
@@ -154,6 +160,169 @@ module.exports = {
     },
     error: () => {
       return `Error while kicking the user!`;
+    },
+    noPermission: () => {
+      return `You don't have permission to use this command!`;
+    },
+    noUser: () => {
+      return `No user specified!`;
+    },
+  },
+  mute: {
+    description: () => {
+      return `Mutes a user`;
+    },
+    category: () => {
+      return `moderation`;
+    },
+    user: () => {
+      return `user`;
+    },
+    userDescription: () => {
+      return `User to be muted!`;
+    },
+    reason: () => {
+      return `reason`;
+    },
+    reasonDescription: () => {
+      return `Reason to be muted!`;
+    },
+    time: () => {
+      return `time`;
+    },
+    timeDescription: () => {
+      return `Time to be muted!`;
+    },
+    timeFormat: () => {
+      return `quantity`;
+    },
+    timeFormatDescription: () => {
+      return `Format of the time to be muted!`;
+    },
+    timeFormatChoices: () => {
+      return {
+        minutes: `minutes`,
+        hours: `hours`,
+        days: `days`,
+      };
+    },
+    noReason: () => {
+      return `No reason specified!`;
+    },
+    muteYourself: () => {
+      return `You can't mute yourself!`;
+    },
+    muteOwner: () => {
+      return `You can't mute the server owner!`;
+    },
+    lowerRole: () => {
+      return `You can't mute a user with roles greater or egual to yours!`;
+    },
+    lowerBotRole: () => {
+      return `You can't mute a user with roles greater or equal to the bot!`;
+    },
+    muteBot: () => {
+      return `You can't mute me!`;
+    },
+    /**
+     * @param {User} User
+     */
+    success: (User) => {
+      return `${User} muted successfully!`;
+    },
+    error: () => {
+      return `Error while muting the user!`;
+    },
+    noPermission: () => {
+      return `You don't have permission to use this command!`;
+    },
+    noUser: () => {
+      return `No user specified!`;
+    },
+    tooLong: () => {
+      return `The time cannot exceed 7 days!`;
+    },
+  },
+  unmute: {
+    description: () => {
+      return `Unmutes a user`;
+    },
+    category: () => {
+      return `moderation`;
+    },
+    user: () => {
+      return `user`;
+    },
+    userDescription: () => {
+      return `User to be unmuted!`;
+    },
+    reason: () => {
+      return `reason`;
+    },
+    reasonDescription: () => {
+      return `Reason to be unmuted!`;
+    },
+    noReason: () => {
+      return `No reason specified!`;
+    },
+    unmuteYourself: () => {
+      return `You can't unmute yourself!`;
+    },
+    unmuteOwner: () => {
+      return `You can't unmute the server owner!`;
+    },
+    lowerRole: () => {
+      return `You can't unmute a user with roles greater or egual to yours!`;
+    },
+    lowerBotRole: () => {
+      return `You can't unmute a user with roles greater or equal to the bot!`;
+    },
+    unmuteBot: () => {
+      return `You can't unmute me!`;
+    },
+    /**
+     * @param {User} User
+     **/
+    success: (User) => {
+      return `${User} unmuted successfully!`;
+    },
+    error: () => {
+      return `Error while unmuting the user!`;
+    },
+    noPermission: () => {
+      return `You don't have permission to use this command!`;
+    },
+  },
+  clear: {
+    description: () => {
+      return `Clears a number of messages in channel`;
+    },
+    category: () => {
+      return `moderation`;
+    },
+    amount: () => {
+      return `amount`;
+    },
+    amountDescription: () => {
+      return `Amount of messages to be deleted!`;
+    },
+    noAmount: () => {
+      return `No amount specified!`;
+    },
+    noPermission: () => {
+      return `You don't have permission to use this command!`;
+    },
+    /**
+     * @param {number} amount
+     **/
+    success: (amount) => {
+      return `${amount} messages deleted successfully!`;
+    },
+    error: () => {
+      return `Error while deleting messages!`;
+    },
+    tooMany: () => {
+      return `You can't delete more than 100 messages at once!`;
     },
   },
 };

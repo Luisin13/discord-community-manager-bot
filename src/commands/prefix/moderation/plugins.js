@@ -33,8 +33,8 @@ module.exports.run = async (Client, message, args, prefix) => {
     plugins = require(`${process.cwd()}/plugins.js`);
   for (const cat of Object.keys(plugins)) {
     for (const plugin of plugins[cat]) {
-      const pluginInfo =
-        require(`${process.cwd()}/src/plugins/${plugin}`).pluginInfo;
+      const pluginInfo = require(`${process.cwd()}/src/plugins/${plugin}`)
+        .pluginInfo;
       pluginsInfo.push(pluginInfo);
     }
   }
@@ -45,7 +45,11 @@ module.exports.run = async (Client, message, args, prefix) => {
       .setBorder("┃", "―", "+", "+");
 
     pluginsInfo.forEach((plugin) => {
-      table.addRow(plugin.name, plugin.author, plugin.githubRepo.split("/").pop());
+      table.addRow(
+        plugin.name,
+        plugin.author,
+        plugin.githubRepo.split("/").pop()
+      );
     });
     message.reply(`\`\`\`prolog\n${table.toString()}\`\`\``);
   } else {
