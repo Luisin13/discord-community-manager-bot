@@ -1,5 +1,8 @@
 const Discord = require("discord.js");
-const config = require(`${process.cwd()}/config.js`);
+const config =
+  process.env.PRODUCTION.toLowerCase() === "false"
+    ? require(`${process.cwd()}/config.js`)
+    : require(`${process.cwd()}/config.dev.js`);
 const translations = require(`${process.cwd()}/locales/${
   config.LANGUAGE
 }/commands.js`);
@@ -52,7 +55,7 @@ module.exports.run = async (interaction, Client) => {
 
 module.exports.help = {
   name: "ban",
-  description: translations.ban.banDescription(),
+  description: translations.ban.description(),
   type: "TEXT_INPUT",
   category: translations.ban.category(),
   defer: false,
@@ -60,7 +63,7 @@ module.exports.help = {
 
 module.exports.cmd = {
   name: "ban",
-  description: translations.ban.banDescription(),
+  description: translations.ban.description(),
   type: "TEXT_INPUT",
   default_permission: false,
   options: [

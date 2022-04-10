@@ -1,6 +1,9 @@
 //Imports
 const Discord = require("discord.js");
-const config = require(`${process.cwd()}/config.js`);
+const config =
+  process.env.PRODUCTION.toLowerCase() === "false"
+    ? require(`${process.cwd()}/config.js`)
+    : require(`${process.cwd()}/config.dev.js`);
 const translations = require(`${process.cwd()}/locales/${
   config.LANGUAGE
 }/commands.js`);

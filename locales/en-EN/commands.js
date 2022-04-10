@@ -25,17 +25,37 @@ module.exports = {
       return `Author`;
     },
     noPlugins: () => {
-      return `No plugins!`
+      return `No plugins!`;
     },
     description: () => {
       return "Look at the plugins in the bot";
     },
     category: () => {
-      return "utility";
+      return "moderation";
+    },
+    noPermission: () => {
+      return "You don't have permission to use this command!";
+    },
+  },
+  modules: {
+    author: () => {
+      return `Author`;
+    },
+    noModules: () => {
+      return `No modules!`;
+    },
+    description: () => {
+      return "Look at the modules in the bot";
+    },
+    category: () => {
+      return "moderation";
+    },
+    noPermission: () => {
+      return "You don't have permission to use this command!";
     },
   },
   ban: {
-    banDescription: () => {
+    description: () => {
       return `Bans a user`;
     },
     category: () => {
@@ -86,6 +106,54 @@ module.exports = {
     },
     error: () => {
       return `Error while banning the user!`;
+    },
+  },
+  kick: {
+    description: () => {
+      return `Kicks a user`;
+    },
+    category: () => {
+      return `moderation`;
+    },
+    user: () => {
+      return `user`;
+    },
+    userDescription: () => {
+      return `User to be kicked!`;
+    },
+    reason: () => {
+      return `reason`;
+    },
+    reasonDescription: () => {
+      return `Reason to be kicked!`;
+    },
+    noReason: () => {
+      return `No reason specified!`;
+    },
+    kickYourself: () => {
+      return `You can't kick yourself!`;
+    },
+    kickOwner: () => {
+      return `You can't kick the server owner!`;
+    },
+    lowerRole: () => {
+      return `You can't kick a user with roles greater or egual to yours!`;
+    },
+    lowerBotRole: () => {
+      return `You can't kick a user with roles greater or equal to the bot!`;
+    },
+    kickBot: () => {
+      return `You can't kick me!`;
+    },
+    /**
+     *
+     * @param {User} user
+     */
+    success: (user) => {
+      return `${user} kicked successfully!`;
+    },
+    error: () => {
+      return `Error while kicking the user!`;
     },
   },
 };

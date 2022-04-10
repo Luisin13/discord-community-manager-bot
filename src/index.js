@@ -1,8 +1,12 @@
 //Packages imports
+require("dotenv").config();
 const { Intents, Collection } = require("discord.js");
 const Discord = require("discord.js");
-const config = require("../config.js");
-const { readdirSync } = require("fs");
+const config =
+  process.env.PRODUCTION.toLowerCase() === "false"
+    ? require(`${process.cwd()}/config.js`)
+    : require(`${process.cwd()}/config.dev.js`);
+const { readdirSync, statSync } = require("fs");
 
 //Configuring Client
 const Client = new Discord.Client({
@@ -15,7 +19,9 @@ Client.AliasesCollection = new Collection();
 Client.Modules = new Collection();
 
 //Executing handlers
-readdirSync("./src/handlers/").forEach((dir) => {
+readdirSync("./src/handlers/").forEach((file) => {
+  if(statSync(`./src/handlers/${file}`).isDirectory()) return;
+  
   var jsFiles = readdirSync("./src/handlers/").filter(
     (f) => f.split(".").pop() === "js"
   );

@@ -1,7 +1,9 @@
 const asciiTable = require("ascii-table");
 const Discord = require("discord.js");
-const sleep = require(`${process.cwd()}/src/util/sleep`);
-const config = require(`${process.cwd()}/config.js`);
+const config =
+  process.env.PRODUCTION.toLowerCase() === "false"
+    ? require(`${process.cwd()}/config.js`)
+    : require(`${process.cwd()}/config.dev.js`);
 const translations = require(`${process.cwd()}/locales/${
   config.LANGUAGE
 }/commands.js`);
@@ -14,8 +16,21 @@ const translations = require(`${process.cwd()}/locales/${
  * @param {String} prefix
  */
 module.exports.run = async (Client, message, args, prefix) => {
-  const pluginsInfo = [];
-  const plugins = require(`${process.cwd()}/plugins.js`);
+  let hasRole = false;
+
+  for (let i = 0; i < message.member._roles.length; i++) {
+    const role = message.member._roles[i];
+    if (hasRole === true) break;
+    config.MODROLES.toString().includes(role)
+      ? (hasRole = true)
+      : (hasRole = false);
+  }
+
+  if (hasRole === false)
+    return message.reply(translations.plugins.noPermission());
+
+  const pluginsInfo = [],
+    plugins = require(`${process.cwd()}/plugins.js`);
   for (const cat of Object.keys(plugins)) {
     for (const plugin of plugins[cat]) {
       const pluginInfo =
@@ -25,17 +40,16 @@ module.exports.run = async (Client, message, args, prefix) => {
   }
 
   if (pluginsInfo.length > 0) {
-    await sleep(200);
     const table = new asciiTable("Plugins")
       .setHeading("Plugin", `${translations.plugins.author()}`, "GitHub")
       .setBorder("┃", "―", "+", "+");
 
     pluginsInfo.forEach((plugin) => {
-      table.addRow(plugin.name, plugin.author, plugin.githubRepo);
+      table.addRow(plugin.name, plugin.author, plugin.githubRepo.split("/").pop());
     });
     message.reply(`\`\`\`prolog\n${table.toString()}\`\`\``);
   } else {
-    message.reply(translations.plugins.noPlugins())
+    message.reply(translations.plugins.noPlugins());
   }
 };
 

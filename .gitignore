@@ -126,3 +126,7 @@ yarn.lock
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Development only:
+*.orig
+*.dev.js

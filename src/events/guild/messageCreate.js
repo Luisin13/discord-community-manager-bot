@@ -1,5 +1,8 @@
 const { existsSync } = require("fs");
-const config = require("../../../config.js");
+const config =
+  process.env.PRODUCTION.toLowerCase() === "false"
+    ? require(`${process.cwd()}/config.js`)
+    : require(`${process.cwd()}/config.dev.js`);
 const plugins = require("../../../plugins.js");
 const { Client } = require("../../index.js");
 

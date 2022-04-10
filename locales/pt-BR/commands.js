@@ -31,11 +31,31 @@ module.exports = {
       return "Olha os plugins instalados no bot";
     },
     category: () => {
-      return "utilidade";
+      return "moderação";
+    },
+    noPermission: () => {
+      return "Você não tem permissão para usar este comando!";
+    }
+  },
+  modules: {
+    author: () => {
+      return `Author`;
+    },
+    noModules: () => {
+      return `Nenhum módulo!`;
+    },
+    description: () => {
+      return "Olha os módulos instalados no bot";
+    },
+    category: () => {
+      return "moderação";
+    },
+    noPermission: () => {
+      return "Você não tem permissão para usar este comando!";
     },
   },
   ban: {
-    banDescription: () => {
+    description: () => {
       return `Bane um usuário`;
     },
     category: () => {
@@ -86,6 +106,54 @@ module.exports = {
     },
     error: () => {
       return `Erro ao banir o usuário!`;
+    },
+  },
+  kick: {
+    description: () => {
+      return `Expulsa um usuário`;
+    },
+    category: () => {
+      return `moderação`;
+    },
+    user: () => {
+      return `usuário`;
+    },
+    userDescription: () => {
+      return `Usurário a ser expulso!`;
+    },
+    reason: () => {
+      return `motivo`;
+    },
+    reasonDescription: () => {
+      return `Motivo para ser expulso!`;
+    },
+    noReason: () => {
+      return `Nenhum motivo especificado!`;
+    },
+    kickYourself: () => {
+      return `Você não pode se expulsar!`;
+    },
+    kickOwner: () => {
+      return `Você não pode expulsar o dono do servidor!`;
+    },
+    lowerRole: () => {
+      return `Você não poder expulsar alguém com um cargo maior ou igual que o seu!`;
+    },
+    lowerBotRole: () => {
+      return `Você não poder expulsar alguém com um cargo maior ou igual ao meu!`;
+    },
+    kickBot: () => {
+      return `Você não pode me expulsar!`;
+    },
+    /**
+     *
+     * @param {User} user
+     */
+    success: (user) => {
+      return `${user} expulso com sucesso!`;
+    },
+    error: () => {
+      return `Erro ao expulsar o usuário!`;
     },
   },
 };
