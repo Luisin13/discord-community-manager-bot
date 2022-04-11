@@ -16,19 +16,20 @@ const translations = require(`${process.cwd()}/locales/${
  * @param {String} prefix
  */
 module.exports.run = async (Client, message, args, prefix) => {
-  if(!message.member.voice.channel) return message.reply(translations.connect.noVoiceChannel());
+  if (!Client.Music.connection) return message.reply(translations.loop.noConnection());
+  if(!message.member.voice.channel) return message.reply(translations.loop.noVoiceChannel());
   try {
-    Client.Music.connect(message.member.voice.channel, message.guild);
-    message.reply(translations.connect.success());
+    const mode = Client.Music.loop();
+    message.reply(translations.loop.success(mode));
   } catch (error) {
     console.log(error);
-    message.reply(translations.connect.error());
+    message.reply(translations.loop.error());
   }
 };
 
 module.exports.help = {
-  name: "connect",
-  description: translations.connect.description(),
+  name: "loop",
+  description: translations.loop.description(),
   aliases: [],
-  category: translations.connect.category(),
+  category: translations.loop.category(),
 };

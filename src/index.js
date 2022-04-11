@@ -11,7 +11,11 @@ const MusicController = require("./controllers/music");
 
 //Configuring Client
 const Client = new Discord.Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.GUILD_VOICE_STATES,
+  ],
 });
 
 Client.SlashCollection = new Collection();
@@ -20,10 +24,13 @@ Client.AliasesCollection = new Collection();
 Client.Modules = new Collection();
 Client.Music = new MusicController(Client);
 
+Client.Music.player.on("error", (error) => console.error(error));
+Client.Music.player.on("end", (end) => console.log(end));
+
 //Executing handlers
 readdirSync("./src/handlers/").forEach((file) => {
-  if(statSync(`./src/handlers/${file}`).isDirectory()) return;
-  
+  if (statSync(`./src/handlers/${file}`).isDirectory()) return;
+
   var jsFiles = readdirSync("./src/handlers/").filter(
     (f) => f.split(".").pop() === "js"
   );

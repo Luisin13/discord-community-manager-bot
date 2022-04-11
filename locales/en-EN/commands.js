@@ -369,7 +369,7 @@ module.exports = {
      */
     color: (color) => {
       return `**The user don't have a banner!** \nHere is the accent color instead! \n(hex: ${color})`;
-    }
+    },
   },
   connect: {
     description: () => {
@@ -384,5 +384,138 @@ module.exports = {
     success: () => {
       return `Connected to the channel!`;
     },
-  }
+    noVoiceChannel: () => {
+      return `You need to be in a voice channel!`;
+    },
+  },
+  disconnect: {
+    description: () => {
+      return `Disconnects from a voice channel`;
+    },
+    category: () => {
+      return `music`;
+    },
+    error: () => {
+      return `Error while disconnecting from the channel!`;
+    },
+    success: () => {
+      return `Disconnected from the channel!`;
+    },
+    noVoiceChannel: () => {
+      return `You need to be in a voice channel!`;
+    },
+    noConnection: () => {
+      return `I'm not connected to a voice channel!`;
+    },
+  },
+  play: {
+    description: () => {
+      return `Plays a song`;
+    },
+    category: () => {
+      return `music`;
+    },
+    error: () => {
+      return `Error while playing the song!`;
+    },
+    success: () => {
+      return `Playing the song!`;
+    },
+    noSong: () => {
+      return `No song specified!`;
+    },
+    noVoiceChannel: () => {
+      return `You need to be in a voice channel!`;
+    },
+    addToQueue: () => {
+      return `Added to queue!`;
+    },
+  },
+  skip: {
+    description: () => {
+      return `Skips a song`;
+    },
+    category: () => {
+      return `music`;
+    },
+    error: () => {
+      return `Error while skipping the song!`;
+    },
+    success: () => {
+      return `Skipped the song!`;
+    },
+    noSong: () => {
+      return `No song specified!`;
+    },
+    noVoiceChannel: () => {
+      return `You need to be in a voice channel!`;
+    },
+    noConnection: () => {
+      return `I'm not connected to a voice channel!`;
+    },
+    cantSkip: () => {
+      return `I can't skip the song!`;
+    },
+  },
+  stop: {
+    description: () => {
+      return `Stops the music and clears the queue`;
+    },
+    category: () => {
+      return `music`;
+    },
+    error: () => {
+      return `Error while stopping the music!`;
+    },
+    success: () => {
+      return `Stopped the music and cleaned the queue!`;
+    },
+    noSong: () => {
+      return `No song found!`;
+    },
+    noVoiceChannel: () => {
+      return `You need to be in a voice channel!`;
+    },
+    noConnection: () => {
+      return `I'm not connected to a voice channel!`;
+    },
+  },
+  loop: {
+    description: () => {
+      return `Loops the current song or queue`;
+    },
+    category: () => {
+      return `music`;
+    },
+    error: () => {
+      return `Error while activating the loop!`;
+    },
+    /**
+     *
+     * @param {"song" | "queue"} mode
+     */
+    success: (mode) => {
+      return `Loop **${mode}** activated!`;
+    },
+    noSong: () => {
+      return `No song found!`;
+    },
+    noVoiceChannel: () => {
+      return `You need to be in a voice channel!`;
+    },
+    noConnection: () => {
+      return `I'm not connected to a voice channel!`;
+    },
+    loopModes: {
+      queue: () => {
+        return `queue`;
+      },
+      song: () => {
+        return `music`;
+      },
+      none: () => {
+        return `none`;
+      },
+    },
+  },
 };

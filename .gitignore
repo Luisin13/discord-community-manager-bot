@@ -130,3 +130,4 @@ yarn.lock
 # Development only:
 *.orig
 *.dev.js
+eval.js

@@ -366,7 +366,7 @@ module.exports = {
      */
     color: (color) => {
       return `**O usuário não tem um banner!** \nAqui está a cor de destaque em vez disso! \n(hex: ${color})`;
-    }
+    },
   },
   connect: {
     description: () => {
@@ -381,5 +381,134 @@ module.exports = {
     success: () => {
       return `Conectado com sucesso!`;
     },
-  }
+    noVoiceChannel: () => {
+      return `Você precisa estar em um canal de voz!`;
+    },
+  },
+  disconnect: {
+    description: () => {
+      return `Desconecta do canal de voz`;
+    },
+    category: () => {
+      return `musica`;
+    },
+    error: () => {
+      return `Erro ao desconectar do canal de voz!`;
+    },
+    success: () => {
+      return `Desconectado com sucesso!`;
+    },
+    noVoiceChannel: () => {
+      return `Você precisa estar em um canal de voz!`;
+    },
+    noConnection: () => {
+      return `Não estou conectado a um canal de voz!`;
+    },
+  },
+  play: {
+    description: () => {
+      return `Toca uma música`;
+    },
+    category: () => {
+      return `musica`;
+    },
+    error: () => {
+      return `Erro ao tocar a música!`;
+    },
+    success: () => {
+      return `Tocando a música!`;
+    },
+    noSong: () => {
+      return `Nenhuma música encontrada!`;
+    },
+    noVoiceChannel: () => {
+      return `Você precisa estar em um canal de voz!`;
+    },
+    addToQueue: () => {
+      return `Adicionado a fila!`;
+    },
+  },
+  skip: {
+    description: () => {
+      return `Pula a música atual`;
+    },
+    category: () => {
+      return `musica`;
+    },
+    error: () => {
+      return `Erro ao pular a música!`;
+    },
+    success: () => {
+      return `Música pulada!`;
+    },
+    noSong: () => {
+      return `Nenhuma música encontrada!`;
+    },
+    noVoiceChannel: () => {
+      return `Você precisa estar em um canal de voz!`;
+    },
+    noConnection: () => {
+      return `Não estou conectado a um canal de voz!`;
+    },
+    cantSkip: () => {
+      return `Não posso pular a música atual!`;
+    },
+  },
+  stop: {
+    description: () => {
+      return `Para a música atual e limpa a fila`;
+    },
+    category: () => {
+      return `musica`;
+    },
+    error: () => {
+      return `Erro ao parar a música!`;
+    },
+    success: () => {
+      return `Música parada e fila limpa!`;
+    },
+    noSong: () => {
+      return `Nenhuma música encontrada!`;
+    },
+    noVoiceChannel: () => {
+      return `Você precisa estar em um canal de voz!`;
+    },
+    noConnection: () => {
+      return `Não estou conectado a um canal de voz!`;
+    },
+  },
+  loop: {
+    description: () => {
+      return `Repete a música atual ou fila`;
+    },
+    category: () => {
+      return `musica`;
+    },
+    error: () => {
+      return `Erro ao ativar a repetição!`;
+    },
+    success: () => {
+      return `Repetição ativada!`;
+    },
+    noSong: () => {
+      return `Nenhuma música encontrada!`;
+    },
+    noVoiceChannel: () => {
+      return `Você precisa estar em um canal de voz!`;
+    },
+    noConnection: () => {
+      return `Não estou conectado a um canal de voz!`;
+    },
+    loopModes: {
+      queue: () => {
+        return `fila`;
+      },
+      song: () => {
+        return `musica`;
+      },
+      none: () => {
+        return `nenhuma`;
+      },
+    },
+  },
 };
